@@ -1,3 +1,36 @@
+/*
+题目描述：
+给定两个字符串s1,s2，寻找其中一个字符串s1是否包含另一个字符串s2。如果包含，返回包含的起始位置，否则返回-1.(注
+意时间复杂度)。注：s1,s2长度满足: 0=<len(s2)<=len(s1)
+
+输入：
+输入有三行 
+第一行包含两个数字，以空格分隔，表示两个字符串的长度 
+第二行为第一个字符串 
+第三行为第二个字符串 
+
+输出：
+输出有一行，输出包含的起始位置，如果有多处包含，则输出每一个包含的位置，以空格作为分隔；如果不包含则输出-1
+
+样例输入：
+37 7
+bacbababadadabacambabacaddababacasdsd
+ababaca
+
+43 10
+ababababcadababababcadababababcadababababca
+ababababca
+
+样例输出：
+26
+
+0 11 22 33
+
+
+*/
+
+
+
 #include <iostream>
 #include <string>
 #include <cstring>
