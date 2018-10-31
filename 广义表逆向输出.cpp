@@ -1,3 +1,21 @@
+/*
+é¢˜ç›®æè¿°ï¼š
+å·²çŸ¥å¹¿ä¹‰è¡¨çš„å­—ç¬¦ä¸²è¡¨ç¤ºå¦‚ä¸‹ï¼š 
+    ((a,(b,c)),(),(d)) 
+è¯·æ ¹æ®å­—ç¬¦ä¸²ç”Ÿæˆå¹¿ä¹‰è¡¨çš„é“¾è¡¨å­˜å‚¨è¡¨ç¤ºï¼Œå¹¶é€†å‘è¾“å‡ºå¹¿ä¹‰è¡¨çš„æ¯ä¸ªå…ƒç´ ã€‚å¦‚æœå¹¿ä¹‰è¡¨çš„å…ƒç´ æ˜¯åŸå­ï¼Œç›´æ¥è¾“å‡ºåŸå­çš„å€¼ï¼ŒåŸå­æ˜¯ä¸€ä¸ªå­—ç¬¦ï¼›å¦‚æœå…ƒç´ æ˜¯å­è¡¨ï¼Œé€†å‘è¾“å‡ºå­è¡¨çš„æ¯ä¸ªå…ƒç´ ï¼›å¦‚æœé‡åˆ°ç©ºè¡¨åˆ™è¾“å‡ºç‰¹æ®Šç¬¦å·'@'ã€‚ 
+
+è¾“å…¥ï¼š
+è¾“å…¥ä¸€è¡Œï¼Œä¸ºå¹¿ä¹‰è¡¨çš„å­—ç¬¦ä¸²è¡¨ç¤ºã€‚
+
+è¾“å‡ºï¼š
+è¾“å‡ºä¸€è¡Œï¼Œä¸ºé€†å‘çš„å¹¿ä¹‰è¡¨å…ƒç´ ï¼Œå…ƒç´ ä¹‹é—´ä¸éœ€åŠ ç©ºæ ¼ã€‚
+
+æ ·ä¾‹è¾“å…¥ï¼š
+((a,(b,c)),(),(d))
+
+æ ·ä¾‹è¾“å‡ºï¼š
+d@cba
+*/
 
 #include <iostream>
 #include <string>
@@ -47,14 +65,14 @@ void GRPVector<T>::push_back(T input)
 	if (real_size == max_size)
 	{
 		T *old = data;
-		data = new T[2 * max_size];//¿ªÒ»¸öÀ©ÈİÒ»±¶µÄÊı×é
+		data = new T[2 * max_size];//å¼€ä¸€ä¸ªæ‰©å®¹ä¸€å€çš„æ•°ç»„
 		for (size_t i(0); i < max_size; ++i)
 		{
 			data[i] = old[i];
 		}
-		max_size *= 2;//½«À©Èİ·´À¡
+		max_size *= 2;//å°†æ‰©å®¹åé¦ˆ
 	}
-	//ÎŞÂÛĞè²»ĞèÒªÀ©Èİ£¬ºóĞøµÄ¹ı³ÌÊÇÒ»ÑùµÄ
+	//æ— è®ºéœ€ä¸éœ€è¦æ‰©å®¹ï¼Œåç»­çš„è¿‡ç¨‹æ˜¯ä¸€æ ·çš„
 	data[real_size] = input;
 	++real_size;
 	return;
@@ -63,8 +81,8 @@ void GRPVector<T>::push_back(T input)
 template <typename T>
 void GRPVector<T>::pop_back()
 {
-	//ÏÖÈç½ñÃ»ÓĞ´òËãÍê³É¿ÉÒÔ×Ô¶¯¼õÉÙ³¤¶ÈµÄ¹¦ÄÜ
-	--real_size;//Ö±½Ó½«×îºóµÄ±êÊ¶ÏòÇ°¼´¿É£¬ÕâÑù×Ó¾Í¿ÉÒÔ±ÜÃâ·ÃÎÊ
+	//ç°å¦‚ä»Šæ²¡æœ‰æ‰“ç®—å®Œæˆå¯ä»¥è‡ªåŠ¨å‡å°‘é•¿åº¦çš„åŠŸèƒ½
+	--real_size;//ç›´æ¥å°†æœ€åçš„æ ‡è¯†å‘å‰å³å¯ï¼Œè¿™æ ·å­å°±å¯ä»¥é¿å…è®¿é—®
 	return;
 }
 
@@ -114,13 +132,13 @@ T& GRPVector<T>::back()
 
 
 template <typename T>
-class GRPGenListItem;//×÷Îª·µ»ØÖµÀàĞÍ
+class GRPGenListItem;//ä½œä¸ºè¿”å›å€¼ç±»å‹
 
 template <typename T>
-class GRPGenListNode;//×÷Îª¹ãÒå±íµÄ½ÚµãÀàĞÍ
+class GRPGenListNode;//ä½œä¸ºå¹¿ä¹‰è¡¨çš„èŠ‚ç‚¹ç±»å‹
 
 template <typename T>
-class GRPGenList;//×÷Îª¹ãÒå±íµÄÖ÷Ìå
+class GRPGenList;//ä½œä¸ºå¹¿ä¹‰è¡¨çš„ä¸»ä½“
 
 template <typename T>
 class GRPGenListItem
@@ -145,18 +163,18 @@ class GRPGenListNode
 {
 	friend class GRPGenList<T>;
 private:
-	int type;//È¡ÖµÖ»¿ÉÄÜÊÇ0/1/2£¬¾ö¶¨ÁËµ±Ç°½ÚµãµÄÀàĞÍ£¬0ÎªÍ·½Úµã£¬1Î»Êı¾İ£¬2ÎªÖ¸ÕëÓò
-	GRPGenListNode<T> *next_link;//Ö¸ÏòÍ¬Ò»¸ö²ã¼¶µÄÏÂÒ»¸ö½Úµã
+	int type;//å–å€¼åªå¯èƒ½æ˜¯0/1/2ï¼Œå†³å®šäº†å½“å‰èŠ‚ç‚¹çš„ç±»å‹ï¼Œ0ä¸ºå¤´èŠ‚ç‚¹ï¼Œ1ä½æ•°æ®ï¼Œ2ä¸ºæŒ‡é’ˆåŸŸ
+	GRPGenListNode<T> *next_link;//æŒ‡å‘åŒä¸€ä¸ªå±‚çº§çš„ä¸‹ä¸€ä¸ªèŠ‚ç‚¹
 	union
 	{
-		int ref;//Èç¹ûÊÇÍ·½áµã£¬Ôò´æ´¢µÄÊÇÒıÓÃ¼ÆÊı
-		T data;//Èç¹ûÊÇÊı¾İ
+		int ref;//å¦‚æœæ˜¯å¤´ç»“ç‚¹ï¼Œåˆ™å­˜å‚¨çš„æ˜¯å¼•ç”¨è®¡æ•°
+		T data;//å¦‚æœæ˜¯æ•°æ®
 		GRPGenListNode<T> *link;
 	}info;
 
 public:
-	GRPGenListNode() :type(0), next_link(nullptr) { info.ref = 0; }//×÷ÎªÍ·½áµãµÄÊ±ºòµÄ½¨Á¢
-	GRPGenListNode(GRPGenListNode<T> &copy) { type = copy.type; next_link = copy.next_link; info = copy.info; }//¿½±´¸³Öµ
+	GRPGenListNode() :type(0), next_link(nullptr) { info.ref = 0; }//ä½œä¸ºå¤´ç»“ç‚¹çš„æ—¶å€™çš„å»ºç«‹
+	GRPGenListNode(GRPGenListNode<T> &copy) { type = copy.type; next_link = copy.next_link; info = copy.info; }//æ‹·è´èµ‹å€¼
 	~GRPGenListNode() {}
 };
 
@@ -165,22 +183,22 @@ class GRPGenList
 {
 private:
 	GRPGenListNode<T> *HEAD;
-	GRPGenListNode<T> *copy(GRPGenListNode<T> *x);//¸´ÖÆÒ»¸öxÖ¸Ê¾µÄÎŞ¹²Ïí·Çµİ¹é±í
+	GRPGenListNode<T> *copy(GRPGenListNode<T> *x);//å¤åˆ¶ä¸€ä¸ªxæŒ‡ç¤ºçš„æ— å…±äº«éé€’å½’è¡¨
 	int length(GRPGenListNode<T> *x);
 	int depth(GRPGenListNode<T> *x);
 
 public:
 	GRPGenList();
 	//~GRPGenList();
-	bool head(GRPGenListItem<T> &x);//·µ»ØÍ·ÔªËØ
+	bool head(GRPGenListItem<T> &x);//è¿”å›å¤´å…ƒç´ 
 	bool tail(GRPGenList<T> &it);
-	void copy(const GRPGenList<T> &x);//¹ãÒå±íµÄ¸´ÖÆ
-	GRPGenListNode<T>* first();//·µ»Ø¹ãÒå±íµÄµÚÒ»¸öÔªËØ£¬Èç¹ûÎª¿Õ£¬Ôò·µ»ØÒ»¸ö¿ÕÖ¸Õënullptr
-	GRPGenListNode<T>* next(GRPGenListNode<T> *x);//·µ»ØËù¸øÔªËØµÄÖ±½ÓºóĞøÔªËØ
+	void copy(const GRPGenList<T> &x);//å¹¿ä¹‰è¡¨çš„å¤åˆ¶
+	GRPGenListNode<T>* first();//è¿”å›å¹¿ä¹‰è¡¨çš„ç¬¬ä¸€ä¸ªå…ƒç´ ï¼Œå¦‚æœä¸ºç©ºï¼Œåˆ™è¿”å›ä¸€ä¸ªç©ºæŒ‡é’ˆnullptr
+	GRPGenListNode<T>* next(GRPGenListNode<T> *x);//è¿”å›æ‰€ç»™å…ƒç´ çš„ç›´æ¥åç»­å…ƒç´ 
 	int length();
 	int depth();
-	//ÁíÍâĞèÒªÒ»¸ö½¨Á¢¹ãÒå±íµÄËã·¨
-	void createlist(GRPVector<T> &input, GRPGenListNode<T> *&x);//ÕâÀïÊÇ·ÂÕÕÊéÉÏËù×öµÄ¹¹½¨º¯Êı£¬¿ÉÄÜ»á²»·ûºÏ×Ô¼ºµÄÔ¤ÆÚ
+	//å¦å¤–éœ€è¦ä¸€ä¸ªå»ºç«‹å¹¿ä¹‰è¡¨çš„ç®—æ³•
+	void createlist(GRPVector<T> &input, GRPGenListNode<T> *&x);//è¿™é‡Œæ˜¯ä»¿ç…§ä¹¦ä¸Šæ‰€åšçš„æ„å»ºå‡½æ•°ï¼Œå¯èƒ½ä¼šä¸ç¬¦åˆè‡ªå·±çš„é¢„æœŸ
 	void Creat(GRPVector<T> &input);
 	void remove(GRPGenListNode<T> *it);
 	void save_to(GRPVector<T> &output, GRPGenListNode<T> *x);
@@ -202,12 +220,12 @@ template <typename T>
 bool GRPGenList<T>::head(GRPGenListItem<T>& x)
 {
 	if (HEAD->next_link == nullptr)
-		return false;//´ËÊ±ÊÇÃ»ÓĞÍ·µÄ
+		return false;//æ­¤æ—¶æ˜¯æ²¡æœ‰å¤´çš„
 	else
 	{
 		x.type = HEAD->next_link->type;
 		x.info = HEAD->next_link->info;
-		return true;//ĞèÒª·µ»ØµÄÍ¨¹ıÒıÓÃ½øĞĞ·µ»Ø
+		return true;//éœ€è¦è¿”å›çš„é€šè¿‡å¼•ç”¨è¿›è¡Œè¿”å›
 	}
 }
 
@@ -215,12 +233,12 @@ template <typename T>
 bool GRPGenList<T>::tail(GRPGenList<T>& it)
 {
 	if (HEAD->next_link == nullptr)
-		return false;//¿Õ±í£¬Ã»ÓĞtail¿ÉÒÔ·µ»Ø
+		return false;//ç©ºè¡¨ï¼Œæ²¡æœ‰tailå¯ä»¥è¿”å›
 	else
 	{
-		it.HEAD->type = 0;//×÷ÎªÒ»¸öÍ·½áµã
+		it.HEAD->type = 0;//ä½œä¸ºä¸€ä¸ªå¤´ç»“ç‚¹
 		it.HEAD->info.ref = 0;
-		it.HEAD->next_link = copy(HEAD->next_link->next_link);//½«tailµÄÍ··ÅÈëÍ·½áµãÖ®ºó
+		it.HEAD->next_link = copy(HEAD->next_link->next_link);//å°†tailçš„å¤´æ”¾å…¥å¤´ç»“ç‚¹ä¹‹å
 		return true;
 	}
 }
@@ -228,7 +246,7 @@ bool GRPGenList<T>::tail(GRPGenList<T>& it)
 template <typename T>
 void GRPGenList<T>::copy(const GRPGenList<T> &x)
 {
-	HEAD = copy(x.HEAD);//µ÷ÓÃÁËË½ÓĞº¯Êı£¬¶¨ÒåÈçÏÂ
+	HEAD = copy(x.HEAD);//è°ƒç”¨äº†ç§æœ‰å‡½æ•°ï¼Œå®šä¹‰å¦‚ä¸‹
 }
 
 template <typename T>
@@ -238,7 +256,7 @@ GRPGenListNode<T>* GRPGenList<T>::copy(GRPGenListNode<T>* x)
 	if (x != nullptr)
 	{
 		p = new GRPGenListNode<T>;
-		p->type = x->type;//½«Õâ¸ö½ÚµãµÄÀàĞÍÉèÖÃ³ÉÎª¿½±´½øÀ´µÄÀàĞÍ
+		p->type = x->type;//å°†è¿™ä¸ªèŠ‚ç‚¹çš„ç±»å‹è®¾ç½®æˆä¸ºæ‹·è´è¿›æ¥çš„ç±»å‹
 		switch (x->type)
 		{
 		case 0:p->info.ref = x->info.ref; break;
@@ -246,7 +264,7 @@ GRPGenListNode<T>* GRPGenList<T>::copy(GRPGenListNode<T>* x)
 		case 2:p->info.link = x->info.link; break;
 		default:cout << x->type << " is not expected as a type!" << endl; exit(-1); break;
 		}
-		p->next_link = copy(x->next_link);//´¦ÀíÍ¬Ò»²ãµÄÏÂÒ»¸ö½Úµã
+		p->next_link = copy(x->next_link);//å¤„ç†åŒä¸€å±‚çš„ä¸‹ä¸€ä¸ªèŠ‚ç‚¹
 	}
 	return p;
 }
@@ -278,7 +296,7 @@ int GRPGenList<T>::length()
 template <typename T>
 int GRPGenList<T>::length(GRPGenListNode<T>* x)
 {
-	//Ïàµ±ÓÚÒ»¸öµİ¹éµ÷ÓÃ£¬²»¶ÏÑ°ÕÒ¸ÃÁ´Ìõ
+	//ç›¸å½“äºä¸€ä¸ªé€’å½’è°ƒç”¨ï¼Œä¸æ–­å¯»æ‰¾è¯¥é“¾æ¡
 	if (x != nullptr)
 		return 1 + length(x->next_link);
 	else
@@ -294,28 +312,28 @@ int GRPGenList<T>::depth()
 template <typename T>
 int GRPGenList<T>::depth(GRPGenListNode<T>* x)
 {
-	//Ò»ÑùµÄÊÇÒ»¸öµİ¹éµ÷ÓÃ
+	//ä¸€æ ·çš„æ˜¯ä¸€ä¸ªé€’å½’è°ƒç”¨
 	/*
-	 * depthÓĞÈıÖÖ¿ÉÄÜµÄÇéĞÎ
-	 * Èç¹ûxÎª¿Õ±í£º1
-	 * Èç¹ûxÎªÔ­×Ó£º0
-	 * default£º1+max{depth} ÆäÖĞ£¬depthÎª±íÖĞËùÓĞ¶ÔÓ¦µÄ×Ó±íµÄÉî¶È
+	 * depthæœ‰ä¸‰ç§å¯èƒ½çš„æƒ…å½¢
+	 * å¦‚æœxä¸ºç©ºè¡¨ï¼š1
+	 * å¦‚æœxä¸ºåŸå­ï¼š0
+	 * defaultï¼š1+max{depth} å…¶ä¸­ï¼Œdepthä¸ºè¡¨ä¸­æ‰€æœ‰å¯¹åº”çš„å­è¡¨çš„æ·±åº¦
 	 */
 	if (x->next_link == nullptr)
 		return 1;
 	GRPGenListNode<T> *p = x->next_link;
-	int m(0), n(0);//Á½¸öÁÙÊ±±äÁ¿
-	while (p != nullptr)//¿ÕÔò²»¿¼ÂÇ
+	int m(0), n(0);//ä¸¤ä¸ªä¸´æ—¶å˜é‡
+	while (p != nullptr)//ç©ºåˆ™ä¸è€ƒè™‘
 	{
-		if (p->type == 2)//Èç¹ûÊÇ¹ãÒå±íµÄ½Úµã£¬¶ø·ÇÔªËØ£¨²»¿ÉÄÜÊÇ±íÍ·£©
+		if (p->type == 2)//å¦‚æœæ˜¯å¹¿ä¹‰è¡¨çš„èŠ‚ç‚¹ï¼Œè€Œéå…ƒç´ ï¼ˆä¸å¯èƒ½æ˜¯è¡¨å¤´ï¼‰
 		{
-			n = depth(p->info.link);//¼ÆËãÒÔ¸Ã½ÚµãÎªÍ·µÄ¹ãÒå±íµÄÉî¶È
-			if (m < n)//´ËÊ±mÒÑÈ»²»ÊÇ×î´óÉî¶È
+			n = depth(p->info.link);//è®¡ç®—ä»¥è¯¥èŠ‚ç‚¹ä¸ºå¤´çš„å¹¿ä¹‰è¡¨çš„æ·±åº¦
+			if (m < n)//æ­¤æ—¶må·²ç„¶ä¸æ˜¯æœ€å¤§æ·±åº¦
 				m = n;
 		}
 		p = p->next_link;
 	}
-	return m + 1;//ÒòÎª»¹ÒªËãÉÏ×Ô¼ºµÄÉî¶È
+	return m + 1;//å› ä¸ºè¿˜è¦ç®—ä¸Šè‡ªå·±çš„æ·±åº¦
 }
 
 
@@ -323,29 +341,29 @@ template <typename T>
 void GRPGenList<T>::createlist(GRPVector<T> &input, GRPGenListNode<T> *&x)
 {
 	//cout << "!" << endl;
-	T input_data;//×÷Îª¶ÁÈ¡³öÀ´µÄÊı¾İ
-	//ÔÚÕâÀï£¬Ï£ÍûÄÜ¹»Ö±½Ó´ïµ½DSOJµÄÊäÈëÒªÇó£¬¶ø·ÇÊéÉÏµÄ
-	//DSOJÊäÈëÑùÀı£º((a,(b,c)),(),(d))
-	//ÈçÉÏ
-	//´ËÊ±µÄ½¨Á¢¾ùÃ»ÓĞ¿¼ÂÇ¹²Ïí±í
-	//input >> input_data;//¶ÁÈëÒ»¸öµ¥Î»µÄÊı¾İ
+	T input_data;//ä½œä¸ºè¯»å–å‡ºæ¥çš„æ•°æ®
+	//åœ¨è¿™é‡Œï¼Œå¸Œæœ›èƒ½å¤Ÿç›´æ¥è¾¾åˆ°DSOJçš„è¾“å…¥è¦æ±‚ï¼Œè€Œéä¹¦ä¸Šçš„
+	//DSOJè¾“å…¥æ ·ä¾‹ï¼š((a,(b,c)),(),(d))
+	//å¦‚ä¸Š
+	//æ­¤æ—¶çš„å»ºç«‹å‡æ²¡æœ‰è€ƒè™‘å…±äº«è¡¨
+	//input >> input_data;//è¯»å…¥ä¸€ä¸ªå•ä½çš„æ•°æ®
 	if (input.size() == 0)
 		return;
 	else
 		input_data = input.pop_head();
 	//cout << input_data << endl;
 	//cout << input.size() << endl;
-	if (input_data == '(')//Èç¹ûÊÇ×óÀ¨ºÅ£¬ÔòÎª±í
+	if (input_data == '(')//å¦‚æœæ˜¯å·¦æ‹¬å·ï¼Œåˆ™ä¸ºè¡¨
 	{
 		x = new GRPGenListNode<T>;
-		x->type = 2;//½¨Á¢ÁËÒ»¸ö×Ó±í½Úµã
+		x->type = 2;//å»ºç«‹äº†ä¸€ä¸ªå­è¡¨èŠ‚ç‚¹
 
-		x->info.link = new GRPGenListNode<T>;//ĞÂ¼Ó½Úµã
-		x->info.link->type = 0;//ÊÇ¸ö±íÍ·
-		x->info.link->info.ref = 1;//±»ÒıÓÃÁËÒ»´Î
+		x->info.link = new GRPGenListNode<T>;//æ–°åŠ èŠ‚ç‚¹
+		x->info.link->type = 0;//æ˜¯ä¸ªè¡¨å¤´
+		x->info.link->info.ref = 1;//è¢«å¼•ç”¨äº†ä¸€æ¬¡
 
 		//cout << "here" << endl;
-		createlist(input, x->info.link->next_link);//µİ¹é½¨Á¢×Ó±í£¬Í¬²ãÏòºó
+		createlist(input, x->info.link->next_link);//é€’å½’å»ºç«‹å­è¡¨ï¼ŒåŒå±‚å‘å
 		//cout << "here" << endl;
 		createlist(input, x);
 		//input_data = input.pop_head();
@@ -353,14 +371,14 @@ void GRPGenList<T>::createlist(GRPVector<T> &input, GRPGenListNode<T> *&x)
 
 	else if (input_data == ',')
 	{
-		//´ËÊ±Ó¦¸ÃÊÇ½¨Á¢ºóĞø½Úµã
+		//æ­¤æ—¶åº”è¯¥æ˜¯å»ºç«‹åç»­èŠ‚ç‚¹
 		
 		createlist(input, x->next_link);
 	}
 
 	else if (input_data == '#')
 	{
-		//´ËÊ±´ú±íÎª¿Õ±í
+		//æ­¤æ—¶ä»£è¡¨ä¸ºç©ºè¡¨
 		//cout << "?" << endl;
 		x = nullptr;
 		input.pop_head();
@@ -369,16 +387,16 @@ void GRPGenList<T>::createlist(GRPVector<T> &input, GRPGenListNode<T> *&x)
 
 	else if (input_data == ')')
 	{
-		//ËµÃ÷¸Ã²ãÒÑ¾­½áÊøÁË
+		//è¯´æ˜è¯¥å±‚å·²ç»ç»“æŸäº†
 		//input_data = input.pop_head();
 		x->next_link = nullptr;
 	}
 
 	else
 	{
-		//´ËÊ±ÊÇÔªËØµÄ½Úµã
+		//æ­¤æ—¶æ˜¯å…ƒç´ çš„èŠ‚ç‚¹
 		x = new GRPGenListNode<T>;
-		x->type = 1;//data½Úµã
+		x->type = 1;//dataèŠ‚ç‚¹
 		x->info.data = input_data;
 		createlist(input, x);
 	}
@@ -395,18 +413,18 @@ void GRPGenList<T>::Creat(GRPVector<T>& input)
 template <typename T>
 void GRPGenList<T>::remove(GRPGenListNode<T>* it)
 {
-	--(it->info.ref);//½«ÒıÓÃ¼õ1£¬ÒòÎªÖ»ÓĞµ±ÒıÓÃÎª0µÄÊ±ºò£¬²Å¿ÉÒÔ·ÅĞÄµÄÉ¾³ıÕâ¸öÍ·½áµã
-	if (it->info.ref == 0)//´ËÊ±¾Í¿ÉÒÔÉ¾³ıÁË
+	--(it->info.ref);//å°†å¼•ç”¨å‡1ï¼Œå› ä¸ºåªæœ‰å½“å¼•ç”¨ä¸º0çš„æ—¶å€™ï¼Œæ‰å¯ä»¥æ”¾å¿ƒçš„åˆ é™¤è¿™ä¸ªå¤´ç»“ç‚¹
+	if (it->info.ref == 0)//æ­¤æ—¶å°±å¯ä»¥åˆ é™¤äº†
 	{
 		GRPGenListNode<T> *p(nullptr);
-		while (it->next_link != nullptr)//µ±Í¬²ãµÄÏÂÒ»¸ö½Úµã´æÔÚ
+		while (it->next_link != nullptr)//å½“åŒå±‚çš„ä¸‹ä¸€ä¸ªèŠ‚ç‚¹å­˜åœ¨
 		{
 			p = it->next_link;
-			if (p->type == 2)//Èç¹ûÊÇlinkÓò
+			if (p->type == 2)//å¦‚æœæ˜¯linkåŸŸ
 			{
-				remove(p->info.link);//µİ¹éÇó£¬ÏòÏÂ½øĞĞÉ¾³ı
-				if (p->info.link->info.ref <= 0)//ËùÖ¸ÏòµÄÍ·½áµãµÄÒıÓÃÒÑ¾­°²È«
-					delete p->info.link;//ËùÒÔÉ¾³ı
+				remove(p->info.link);//é€’å½’æ±‚ï¼Œå‘ä¸‹è¿›è¡Œåˆ é™¤
+				if (p->info.link->info.ref <= 0)//æ‰€æŒ‡å‘çš„å¤´ç»“ç‚¹çš„å¼•ç”¨å·²ç»å®‰å…¨
+					delete p->info.link;//æ‰€ä»¥åˆ é™¤
 			}
 			it->next_link = p->next_link;
 			delete p;
@@ -419,9 +437,9 @@ void GRPGenList<T>::save_to(GRPVector<T>& output, GRPGenListNode<T>* x)
 {
 	if (x == nullptr)
 		return;
-	else if (x->type == 0)//´ËÊ±ÊÇÍ·½áµã
+	else if (x->type == 0)//æ­¤æ—¶æ˜¯å¤´ç»“ç‚¹
 	{
-		if (x->next_link == nullptr)//´ËÊ±ÊÇ¿Õ
+		if (x->next_link == nullptr)//æ­¤æ—¶æ˜¯ç©º
 		{
 			output.push_back('@');
 			return;
@@ -434,14 +452,14 @@ void GRPGenList<T>::save_to(GRPVector<T>& output, GRPGenListNode<T>* x)
 
 	else if (x->type == 1)
 	{
-		//´ËÊ±ÊÇÊı¾İÓò
+		//æ­¤æ—¶æ˜¯æ•°æ®åŸŸ
 		output.push_back(x->info.data);
 		save_to(output, x->next_link);
 	}
 
 	else
 	{
-		//´ËÊ±ÊÇlinkÓò
+		//æ­¤æ—¶æ˜¯linkåŸŸ
 		save_to(output, x->info.link);
 		save_to(output, x->next_link);
 	}
