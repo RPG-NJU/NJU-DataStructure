@@ -1,4 +1,30 @@
 //#pragma once
+/*
+é¢˜ç›®æè¿°ï¼š
+æ‰“å°äºŒå‰æ ‘ï¼ˆäºŒå‰é“¾è¡¨è¡¨ç¤ºï¼‰çš„æ‰€æœ‰å¶èŠ‚ç‚¹åˆ°æ ¹ç»“ç‚¹çš„è·¯å¾„ã€‚è¾“å…¥äºŒå‰æ ‘ä¸ºå‰åºåºåˆ—ï¼Œç©ºèŠ‚ç‚¹ç”¨'@'è¡¨ç¤ºï¼Œå¦‚ï¼š 
+             A 
+           /   \ 
+          B     C 
+        /      /  \ 
+       D      E    F 
+è¡¨ç¤ºä¸ºï¼šABD@@@CE@@F@@ 
+
+è¾“å…¥ï¼š
+è¾“å…¥ä¸€è¡Œï¼Œä¸ºäºŒå‰æ ‘çš„å‰åºè¡¨ç¤ºã€‚
+
+è¾“å‡ºï¼š
+è¾“å‡ºè‹¥å¹²è¡Œï¼Œæ¯è¡Œä¸ºä¸€ä¸ªå¶èŠ‚ç‚¹åˆ°æ ¹ç»“ç‚¹çš„è·¯å¾„ï¼ŒæŒ‰å¶èŠ‚ç‚¹ä»å·¦å¾€å³çš„é¡ºåºè¾“å‡ºã€‚
+
+æ ·ä¾‹è¾“å…¥ï¼š
+ABD@@@CE@@F@@
+
+æ ·ä¾‹è¾“å‡ºï¼š
+DBA
+ECA
+FCA
+*/
+
+
 #ifndef GRP_BINTREE
 #define GRP_BINTREE
 
@@ -49,7 +75,7 @@ public:
 	T& back();
 	T& operator[](int i);
 
-	int find(T which) const;//Ñ°ÕÒÄ³ÔªËØ£¬·µ»ØËüµÄË÷Òı
+	int find(T which) const;//å¯»æ‰¾æŸå…ƒç´ ï¼Œè¿”å›å®ƒçš„ç´¢å¼•
 };
 
 template <typename T>
@@ -68,14 +94,14 @@ void GRPVector<T>::push_back(T input)
 	if (real_size == max_size)
 	{
 		T *old = data;
-		data = new T[2 * max_size];//¿ªÒ»¸öÀ©ÈİÒ»±¶µÄÊı×é
+		data = new T[2 * max_size];//å¼€ä¸€ä¸ªæ‰©å®¹ä¸€å€çš„æ•°ç»„
 		for (size_t i(0); i < max_size; ++i)
 		{
 			data[i] = old[i];
 		}
-		max_size *= 2;//½«À©Èİ·´À¡
+		max_size *= 2;//å°†æ‰©å®¹åé¦ˆ
 	}
-	//ÎŞÂÛĞè²»ĞèÒªÀ©Èİ£¬ºóĞøµÄ¹ı³ÌÊÇÒ»ÑùµÄ
+	//æ— è®ºéœ€ä¸éœ€è¦æ‰©å®¹ï¼Œåç»­çš„è¿‡ç¨‹æ˜¯ä¸€æ ·çš„
 	data[real_size] = input;
 	++real_size;
 	return;
@@ -84,8 +110,8 @@ void GRPVector<T>::push_back(T input)
 template <typename T>
 void GRPVector<T>::pop_back()
 {
-	//ÏÖÈç½ñÃ»ÓĞ´òËãÍê³É¿ÉÒÔ×Ô¶¯¼õÉÙ³¤¶ÈµÄ¹¦ÄÜ
-	--real_size;//Ö±½Ó½«×îºóµÄ±êÊ¶ÏòÇ°¼´¿É£¬ÕâÑù×Ó¾Í¿ÉÒÔ±ÜÃâ·ÃÎÊ
+	//ç°å¦‚ä»Šæ²¡æœ‰æ‰“ç®—å®Œæˆå¯ä»¥è‡ªåŠ¨å‡å°‘é•¿åº¦çš„åŠŸèƒ½
+	--real_size;//ç›´æ¥å°†æœ€åçš„æ ‡è¯†å‘å‰å³å¯ï¼Œè¿™æ ·å­å°±å¯ä»¥é¿å…è®¿é—®
 	return;
 }
 
@@ -130,7 +156,7 @@ int GRPVector<T>::find(T which) const
 		if (data[i] == which)
 			return i;
 	}
-	return -1;//×÷ÎªÎŞ´ËÔªËØµÄ±êÖ¾
+	return -1;//ä½œä¸ºæ— æ­¤å…ƒç´ çš„æ ‡å¿—
 }
 
 #endif
@@ -203,7 +229,7 @@ public:
 //	current->next = nullptr;
 //	--stack_size;
 //	T pop_ret(p->data);
-//	delete p;//»»³Édelete[]¾Í»á²»ĞĞ£¬´ı½â
+//	delete p;//æ¢æˆdelete[]å°±ä¼šä¸è¡Œï¼Œå¾…è§£
 //	return pop_ret;
 //}
 //
@@ -337,7 +363,7 @@ protected:
 	GRPBinTreeNode(T x, GRPBinTreeNode *left = nullptr, GRPBinTreeNode *right = nullptr) :data(x), leftChild(left), rightChild(right) {}
 };
 
-//ÕâÀï¼ÓÈëÒ»¸öĞÂµÄ½á¹¹Ìå£¬ÓÃÓÚÔÚÕ»ÖĞ¼ÇÂ¼´´½¨Ê±ºòµÄ½Úµã£¬ĞèÒª±ê×¢´ËÊ±ÒÑ¾­µ½ÁË½¨Á¢½ÚµãµÄ×ó×ÓÊ÷»¹ÊÇÓÒ×ÓÊ÷<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+//è¿™é‡ŒåŠ å…¥ä¸€ä¸ªæ–°çš„ç»“æ„ä½“ï¼Œç”¨äºåœ¨æ ˆä¸­è®°å½•åˆ›å»ºæ—¶å€™çš„èŠ‚ç‚¹ï¼Œéœ€è¦æ ‡æ³¨æ­¤æ—¶å·²ç»åˆ°äº†å»ºç«‹èŠ‚ç‚¹çš„å·¦å­æ ‘è¿˜æ˜¯å³å­æ ‘<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 enum Child { LEFT, RIGHT };
 
 template <typename T>
@@ -352,12 +378,12 @@ template <typename T>
 class GRPBinTree
 {
 protected:
-	GRPBinTreeNode<T> *ROOT;//×÷Îª¶ş²æÊ÷µÄ¸ù½Úµã
-	T END;//Êı¾İÊäÈëÍ£Ö¹µÄ±êÖ¾
-	GRPBinTreeNode<T>* parent(GRPBinTreeNode<T> *sub_tree, GRPBinTreeNode<T> *current);//·µ»Ø¸¸½ÚµãµÄÖ÷Òªº¯Êı£¬ÒÔ¹©Ë½ÓĞµ÷ÓÃ
+	GRPBinTreeNode<T> *ROOT;//ä½œä¸ºäºŒå‰æ ‘çš„æ ¹èŠ‚ç‚¹
+	T END;//æ•°æ®è¾“å…¥åœæ­¢çš„æ ‡å¿—
+	GRPBinTreeNode<T>* parent(GRPBinTreeNode<T> *sub_tree, GRPBinTreeNode<T> *current);//è¿”å›çˆ¶èŠ‚ç‚¹çš„ä¸»è¦å‡½æ•°ï¼Œä»¥ä¾›ç§æœ‰è°ƒç”¨
 
-	bool insert(GRPBinTreeNode<T> *&sub_tree, const T &input);//²åÈëĞÂÔªËØµÄÖ÷ÒªÊµÏÖº¯Êı£¬¹©Ë½ÓĞµ÷ÓÃ
-	void show_data_oneline(GRPBinTreeNode<T> *x) const { cout << x->data; }//ÔÚÍ¬Ò»ĞĞÊä³öËùÓĞµÄÊı¾İµã
+	bool insert(GRPBinTreeNode<T> *&sub_tree, const T &input);//æ’å…¥æ–°å…ƒç´ çš„ä¸»è¦å®ç°å‡½æ•°ï¼Œä¾›ç§æœ‰è°ƒç”¨
+	void show_data_oneline(GRPBinTreeNode<T> *x) const { cout << x->data; }//åœ¨åŒä¸€è¡Œè¾“å‡ºæ‰€æœ‰çš„æ•°æ®ç‚¹
 
 	void show_all_postoder_oneline(GRPBinTreeNode<T> *x);
 
@@ -366,14 +392,14 @@ public:
 	GRPBinTree() :ROOT(nullptr) {}
 	GRPBinTree(T end) :END(end), ROOT(nullptr) {}
 	GRPBinTreeNode<T>* parent(GRPBinTreeNode<T> *current) { return (ROOT == nullptr || ROOT == current) ? nullptr : parent(ROOT, current); }
-	//Èç¹ûµ±Ç°µÄ½ÚµãÊÇ¿Õ»òÕßÒÑ¾­ÊÇ¸ù½Úµã£¬ÔòÃ»ÓĞ¸¸½Úµã£¬·ñÔòÔò·µ»Ø¸¸½Úµã
+	//å¦‚æœå½“å‰çš„èŠ‚ç‚¹æ˜¯ç©ºæˆ–è€…å·²ç»æ˜¯æ ¹èŠ‚ç‚¹ï¼Œåˆ™æ²¡æœ‰çˆ¶èŠ‚ç‚¹ï¼Œå¦åˆ™åˆ™è¿”å›çˆ¶èŠ‚ç‚¹
 
-	int insert(const T &input);//²åÈëĞÂÔªËØ
-	bool empty() { return ROOT == nullptr; }//¶ş²æÊ÷ÊÇ·ñÎª¿Õ
+	int insert(const T &input);//æ’å…¥æ–°å…ƒç´ 
+	bool empty() { return ROOT == nullptr; }//äºŒå‰æ ‘æ˜¯å¦ä¸ºç©º
 
 	void show_all_postoder_oneline() { show_all_postoder_oneline(ROOT); }
 
-	void preorder_create(GRPVector<T> &input, T null_node);//Ç°ĞòµÄÊäÈë½¨Á¢Ò»¸ö¶ş²æÊ÷£¬null_node´ú±íÁË¿Õ½ÚµãµÄ±íÊ¾
+	void preorder_create(GRPVector<T> &input, T null_node);//å‰åºçš„è¾“å…¥å»ºç«‹ä¸€ä¸ªäºŒå‰æ ‘ï¼Œnull_nodeä»£è¡¨äº†ç©ºèŠ‚ç‚¹çš„è¡¨ç¤º
 
 	void find_the_way(GRPVector<T> &store) { find_the_way(store, ROOT, 1); }
 };
@@ -381,7 +407,7 @@ public:
 template <typename T>
 GRPBinTreeNode<T>* GRPBinTree<T>::parent(GRPBinTreeNode<T>* sub_tree, GRPBinTreeNode<T>* current)
 {
-	//´Ósub_tree¿ªÊ¼£¬ÏòÏÂÑ°ÕÒcurrentµÄ¸¸½Úµã
+	//ä»sub_treeå¼€å§‹ï¼Œå‘ä¸‹å¯»æ‰¾currentçš„çˆ¶èŠ‚ç‚¹
 	if (sub_tree == nullptr)
 		return nullptr;
 	else if (sub_tree->leftChild == current || sub_tree->rightChild == current)
@@ -390,9 +416,9 @@ GRPBinTreeNode<T>* GRPBinTree<T>::parent(GRPBinTreeNode<T>* sub_tree, GRPBinTree
 	{
 		GRPBinTreeNode<T> *p;
 		if ((p = parent(sub_tree->leftChild, current)) != nullptr)
-			return p;//µİ¹é×ó×ÓÊ÷½øĞĞ²éÕÒ
+			return p;//é€’å½’å·¦å­æ ‘è¿›è¡ŒæŸ¥æ‰¾
 		else
-			return parent(sub_tree->rightChild, current);//ÔÚÓÒ×ÓÊ÷Ñ°ÕÒ
+			return parent(sub_tree->rightChild, current);//åœ¨å³å­æ ‘å¯»æ‰¾
 	}
 }
 
@@ -402,7 +428,7 @@ void GRPBinTree<T>::show_all_postoder_oneline(GRPBinTreeNode<T>* x)
 	if (x != nullptr)
 	{
 		show_all_postoder_oneline(x->leftChild);
-		show_all_postoder_oneline(x->rightChild);//Í¨¹ıµİ¹é½øĞĞºóĞò±éÀú
+		show_all_postoder_oneline(x->rightChild);//é€šè¿‡é€’å½’è¿›è¡Œååºéå†
 		show_data_oneline(x);
 	}
 	return;
@@ -418,7 +444,7 @@ void GRPBinTree<T>::preorder_create(GRPVector<T>& input, T null_node)
 	}
 	ROOT = new GRPBinTreeNode<T>;
 	ROOT->data = input[0];
-	//¶ÔÓÚµÚÒ»¸ö½ÚµãµÄµ¥¶ÀÌÖÂÛ
+	//å¯¹äºç¬¬ä¸€ä¸ªèŠ‚ç‚¹çš„å•ç‹¬è®¨è®º
 	GRPStack<GRPBinTreeBuildNode<T>> node_stack;
 	node_stack.push({ ROOT,LEFT });
 	for (int i(1); i < input.size(); ++i)
@@ -452,11 +478,11 @@ void GRPBinTree<T>::preorder_create(GRPVector<T>& input, T null_node)
 template <typename T>
 void GRPBinTree<T>::find_the_way(GRPVector<T>& store, GRPBinTreeNode<T>* x, int i)
 {
-	store[i - 1] = x->data;//½«¸Ã½Úµã·ÅÈëÊä³ö×¼±¸
+	store[i - 1] = x->data;//å°†è¯¥èŠ‚ç‚¹æ”¾å…¥è¾“å‡ºå‡†å¤‡
 	//cout << i << endl;
 	if (x->leftChild == nullptr && x->rightChild == nullptr)
 	{
-		//cout << "Éî¶ÈÎª" << i << endl;
+		//cout << "æ·±åº¦ä¸º" << i << endl;
 		//cout << "find the end" << endl;
 		for (int j(i - 1); j >= 0; --j)
 			cout << store[j];
@@ -467,12 +493,12 @@ void GRPBinTree<T>::find_the_way(GRPVector<T>& store, GRPBinTreeNode<T>* x, int 
 	{
 		if (x->leftChild != nullptr)
 		{
-			//cout << x->data << "×ó×ÓÊ÷Îª" << x->leftChild->data << endl;
+			//cout << x->data << "å·¦å­æ ‘ä¸º" << x->leftChild->data << endl;
 			find_the_way(store, x->leftChild, i + 1);
 		}
 		if (x->rightChild != nullptr)
 		{
-			//cout << x->data << "ÓÒ×ÓÊ÷Îª" << x->rightChild->data << endl;
+			//cout << x->data << "å³å­æ ‘ä¸º" << x->rightChild->data << endl;
 			find_the_way(store, x->rightChild, i + 1);
 		}
 		//return;
