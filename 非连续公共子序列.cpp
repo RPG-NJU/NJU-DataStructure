@@ -1,3 +1,23 @@
+/*
+题目描述：
+在两个非空字符串（字符串长度不超过100）中找到一个最长的非连续公共子序列。 
+例如：str1 = "abcdefgh"， str2 = "ghabdh"， 它们的最长非连续公共子序列即为"abdh"，长度为4。 
+注意时间复杂度。 
+
+输入：
+输入两行，分别为两个非空字符串。
+
+输出：
+输出一个整数，表示最长公共子序列的长度。
+
+样例输入：
+abcdefgh
+ghabdh
+
+样例输出：
+4
+*/
+
 #include <iostream>
 #include <cmath>
 #include <string>
@@ -71,7 +91,7 @@ int main()
 	cin >> inputa >> inputb;
 
 
-	//�����Ѿ����
+	//输入数据完成
 
 	cout << Func(inputa, inputb) << endl;
 
