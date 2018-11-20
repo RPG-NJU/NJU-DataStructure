@@ -1,3 +1,22 @@
+/*
+题目描述：
+给定节点权值集合，构建哈夫曼树，并求其WPL（加权路径长度）。 
+
+输入：
+第一行为一个整数n，表示节点个数。1<=n<=100000。
+第二行为n个整数，表示每个节点的权值。1<=权值<=500000。 
+
+输出：
+输出一个整数，表示所构建的哈夫曼树的加权路径长度。 
+
+样例输入：
+4
+2 7 4 5 
+
+样例输出：
+35
+
+*/
 #include <iostream>
 #include <cmath>
 #include <ctime>
@@ -25,8 +44,8 @@ clock_t count = 0;
 #endif
 int Read_n_and_n_numbers(int *&input);
 
-void Build_MinTree(int* &data, int data_len);//���ص�ͷ���
-void SiftDown(int* &data, int x, int y);//�Ŵ�����
+void Build_MinTree(int* &data, int data_len);//返回的头结点
+void SiftDown(int* &data, int x, int y);//遗传函数
 
 HuffmanNode* Build_HufMinTree(int* &data, int data_len);
 
@@ -43,8 +62,8 @@ int main()
 	int *input(nullptr);
 	int n(0);
 	n = Read_n_and_n_numbers(input);
-	//�ɴ˵õ���nΪ���ݵ�������inputΪ��̬�������õ���
-	//cout << sizeof(input) << endl;//���ڲ����Ƿ����ͨ�����ַ����ĵõ�input�ĳ���
+	//由此得到的n为数据的数量，input为动态数组分配得到的
+	//cout << sizeof(input) << endl;//用于测试是否可以通过这种方法的得到input的长度
 	if (n == 0)
 	{
 		cout << "0" << endl;
@@ -113,7 +132,7 @@ void SiftDown(int*& data, int x, int y)
 			++left;
 
 		if (temp < data[left])
-			break;//��������
+			break;//符合题意
 		else
 		{
 			data[parent] = data[left];
@@ -204,7 +223,7 @@ void TryMinTree(HuffmanNode*& list, int &list_len)
 		TryDown(list, current, list_len - 1);
 		--current;
 	}*/
-	//��ͷ��㿪ʼ���µݹ����
+	//从头结点开始向下递归调整
 	TryDown(list, 0, list_len);
 	return;
 }
@@ -219,7 +238,7 @@ void TryDown(HuffmanNode*& list, int x, int &list_len)
 	//		++left;
 
 	//	if (temp.power < list[left].power)
-	//		break;//��������
+	//		break;//符合题意
 	//	else
 	//	{
 	//		list[parent] = list[left];
@@ -241,7 +260,7 @@ void TryDown(HuffmanNode*& list, int x, int &list_len)
 			list[x] = list[left];
 			list[left] = temp;
 		}
-		//if (left % 2 == 1)//��ʱ��������
+		//if (left % 2 == 1)//这时候是左孩子
 		//{
 		//	TryDown(list, left, list_len);
 		//	//TryDown(list, left + 1, list_len);
