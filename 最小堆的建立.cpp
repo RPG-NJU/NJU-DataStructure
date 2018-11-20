@@ -1,4 +1,32 @@
 //#pragma once
+/*
+é¢˜ç›®æè¿°ï¼š
+ç»™å®šä¸€ä¸ªæ•´æ•°åºåˆ—ï¼Œæ„å»ºæœ€å°å †ï¼ˆæ•°ç»„è¡¨ç¤ºï¼Œä»æœ€åä¸€ä¸ªéå¶å­èŠ‚ç‚¹å¾€æ ¹èŠ‚ç‚¹è¿›è¡Œè°ƒæ•´ï¼‰ã€‚æœ€ç»ˆè¾“å‡ºæœ€å°å †åºåˆ—ã€‚
+
+è¾“å…¥ï¼š
+ä¸€ä¸ªæ•´æ•°æ•°ç»„ï¼Œæ•°ç»„å…ƒç´ ç©ºæ ¼éš”å¼€
+
+è¾“å‡ºï¼š
+æœ€å°å †åºåˆ—ï¼Œå…ƒç´ ä¹‹é—´ç©ºæ ¼éš”å¼€
+
+æ ·ä¾‹è¾“å…¥ï¼š
+53 17 78 23 45 65 87 9
+
+3
+
+16 7 3 20 17 8
+
+23 2 5 12 7 17 25 19 36 99 22 28 46 92 3
+
+æ ·ä¾‹è¾“å‡ºï¼š
+9 17 65 23 45 78 87 53
+
+3
+
+3 7 8 20 17 16
+
+2 7 3 12 22 17 5 19 36 99 23 28 46 92 25
+*/
 #ifndef GRP_VECTOR
 #define GRP_VECTOR
 
@@ -40,7 +68,7 @@ public:
 	void insert(int i, const T &add);
 	void erase(int i);
 
-	int find(T which) const;//Ñ°ÕÒÄ³ÔªËØ£¬·µ»ØËüµÄË÷Òı
+	int find(T which) const;//å¯»æ‰¾æŸå…ƒç´ ï¼Œè¿”å›å®ƒçš„ç´¢å¼•
 
 	GRPVector& operator=(const GRPVector& copy);
 };
@@ -51,7 +79,7 @@ GRPVector<T>::GRPVector() : data(new T[GRP_VECTOR_DEFAULTSIZE]), max_size(GRP_VE
 template <typename T>
 GRPVector<T>::~GRPVector()
 {
-	delete data;//½«¶¯Ì¬Êı×é¹é»¹
+	delete data;//å°†åŠ¨æ€æ•°ç»„å½’è¿˜
 }
 
 
@@ -82,14 +110,14 @@ void GRPVector<T>::push_back(T input)
 	if (real_size == max_size)
 	{
 		T *old = data;
-		data = new T[2 * max_size];//¿ªÒ»¸öÀ©ÈİÒ»±¶µÄÊı×é
+		data = new T[2 * max_size];//å¼€ä¸€ä¸ªæ‰©å®¹ä¸€å€çš„æ•°ç»„
 		for (size_t i(0); i < max_size; ++i)
 		{
 			data[i] = old[i];
 		}
-		max_size *= 2;//½«À©Èİ·´À¡
+		max_size *= 2;//å°†æ‰©å®¹åé¦ˆ
 	}
-	//ÎŞÂÛĞè²»ĞèÒªÀ©Èİ£¬ºóĞøµÄ¹ı³ÌÊÇÒ»ÑùµÄ
+	//æ— è®ºéœ€ä¸éœ€è¦æ‰©å®¹ï¼Œåç»­çš„è¿‡ç¨‹æ˜¯ä¸€æ ·çš„
 	data[real_size] = input;
 	++real_size;
 	return;
@@ -98,8 +126,8 @@ void GRPVector<T>::push_back(T input)
 template <typename T>
 void GRPVector<T>::pop_back()
 {
-	//ÏÖÈç½ñÃ»ÓĞ´òËãÍê³É¿ÉÒÔ×Ô¶¯¼õÉÙ³¤¶ÈµÄ¹¦ÄÜ
-	--real_size;//Ö±½Ó½«×îºóµÄ±êÊ¶ÏòÇ°¼´¿É£¬ÕâÑù×Ó¾Í¿ÉÒÔ±ÜÃâ·ÃÎÊ
+	//ç°å¦‚ä»Šæ²¡æœ‰æ‰“ç®—å®Œæˆå¯ä»¥è‡ªåŠ¨å‡å°‘é•¿åº¦çš„åŠŸèƒ½
+	--real_size;//ç›´æ¥å°†æœ€åçš„æ ‡è¯†å‘å‰å³å¯ï¼Œè¿™æ ·å­å°±å¯ä»¥é¿å…è®¿é—®
 	return;
 }
 
@@ -141,7 +169,7 @@ void GRPVector<T>::insert(int i, const T& add)
 {
 	if (i < real_size)
 	{
-		this->push_back(this->back());//½«×îºóÒ»Î»µÄÊı¾İÔÚÌî³äÒ»´Î£¬¹©À©Õ¹
+		this->push_back(this->back());//å°†æœ€åä¸€ä½çš„æ•°æ®åœ¨å¡«å……ä¸€æ¬¡ï¼Œä¾›æ‰©å±•
 		for (int j(i); j < real_size - 1; ++j)
 		{
 			(*this)[j + 1] = (*this)[j];
@@ -150,7 +178,7 @@ void GRPVector<T>::insert(int i, const T& add)
 	}
 	else
 	{
-		cout << "GRPVectorµÄ×Ü³¤¶ÈÎª" << real_size << "£¬²»ÄÜÔÚ[" << i << "]´¦²åÈëÔªËØ" << endl;
+		cout << "GRPVectorçš„æ€»é•¿åº¦ä¸º" << real_size << "ï¼Œä¸èƒ½åœ¨[" << i << "]å¤„æ’å…¥å…ƒç´ " << endl;
 	}
 	return;
 }
@@ -168,7 +196,7 @@ void GRPVector<T>::erase(int i)
 	}
 	else
 	{
-		cout << "GRPVectorµÄ×Ü³¤¶ÈÎª" << real_size << "£¬²»ÄÜÔÚÉ¾³ı[" << i << "]ÔªËØ" << endl;
+		cout << "GRPVectorçš„æ€»é•¿åº¦ä¸º" << real_size << "ï¼Œä¸èƒ½åœ¨åˆ é™¤[" << i << "]å…ƒç´ " << endl;
 	}
 	return;
 }
@@ -182,7 +210,7 @@ int GRPVector<T>::find(T which) const
 		if (data[i] == which)
 			return i;
 	}
-	return -1;//×÷ÎªÎŞ´ËÔªËØµÄ±êÖ¾
+	return -1;//ä½œä¸ºæ— æ­¤å…ƒç´ çš„æ ‡å¿—
 }
 
 
@@ -217,7 +245,7 @@ int main()
 		//cout << input << endl;
 
 	}
-	//Íê³ÉÁËËùÓĞµÄÊäÈë
+	//å®Œæˆäº†æ‰€æœ‰çš„è¾“å…¥
 
 
 	BuildMinHeap(all_data);
@@ -246,23 +274,23 @@ void BuildMinHeap(GRPVector<int> &data)
 
 void SiftDown(GRPVector<int> &data, int x, int y)
 {
-	int parent(x), left(2 * parent + 1);//left´ú±íÁËparentµÄ×ó½ÚµãµÄÎ»ÖÃ
+	int parent(x), left(2 * parent + 1);//leftä»£è¡¨äº†parentçš„å·¦èŠ‚ç‚¹çš„ä½ç½®
 	int mid = data[parent];
 	while (left <= y)
 	{
 		
 		if (left < y && data[left] > data[left + 1])
-			left = left + 1;//Ö¸ÏòÁËÁ½¸öº¢×Ó½ÚµãÖĞĞ¡µÄÄÇÒ»¸ö
+			left = left + 1;//æŒ‡å‘äº†ä¸¤ä¸ªå­©å­èŠ‚ç‚¹ä¸­å°çš„é‚£ä¸€ä¸ª
 
 		if (mid < data[left])
-			break;//·Ç³£µÄ·ûºÏÌâÒâ
+			break;//éå¸¸çš„ç¬¦åˆé¢˜æ„
 
 		else
 		{
 			
 			data[parent] = data[left];
 			parent = left;
-			left = left * 2 + 1;//·ñÔò³¤±²½ÚµãÏÂ»¬£¬Õë¶Ô¸Ä±äµÄ×ÓÊ÷½øĞĞ½øÒ»²½²Ù×÷
+			left = left * 2 + 1;//å¦åˆ™é•¿è¾ˆèŠ‚ç‚¹ä¸‹æ»‘ï¼Œé’ˆå¯¹æ”¹å˜çš„å­æ ‘è¿›è¡Œè¿›ä¸€æ­¥æ“ä½œ
 		}
 		//cout << "what" << endl;
 		data[parent] = mid;
